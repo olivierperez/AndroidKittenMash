@@ -133,6 +133,15 @@ public final class BestKittenActivity_
         );
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        BestKittenActivity_.super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case  1 :
+                BestKittenActivity_.this.onResult(resultCode, data);
+        }
+    }
+
     public static class IntentBuilder_ {
 
         private Context context_;

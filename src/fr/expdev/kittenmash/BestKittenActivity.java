@@ -13,6 +13,7 @@ import com.googlecode.androidannotations.annotations.Background;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.NoTitle;
+import com.googlecode.androidannotations.annotations.OnActivityResult;
 import com.googlecode.androidannotations.annotations.UiThread;
 import com.googlecode.androidannotations.annotations.ViewById;
 
@@ -22,7 +23,7 @@ public class BestKittenActivity extends Activity {
 
 	private static final String BEST_KITTEN = "BEST_KITTEN";
 
-	private static int REQUEST_CODE = 1;
+	private static final int REQUEST_CODE = 1;
 
 	public static String KITTEN = "KITTEN";
 
@@ -60,16 +61,14 @@ public class BestKittenActivity extends Activity {
 				.startForResult(REQUEST_CODE);
 	}
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Log.d("BestKittenActivity", "onActivityResult(" + requestCode + "," + resultCode + ",...)");
-		if (requestCode == REQUEST_CODE) {
+	@OnActivityResult(REQUEST_CODE)
+	protected void onResult(int resultCode, Intent data) {
+		Log.d("BestKittenActivity", "onActivityResult(" + resultCode + ",...)");
 			if (resultCode == RESULT_OK) {
 				int kitten = data.getIntExtra(KITTEN, 0);
 				setBestKitten(kitten);
 				saveBestKitten(kitten);
 			}
-		}
 	}
 	
 	@UiThread
