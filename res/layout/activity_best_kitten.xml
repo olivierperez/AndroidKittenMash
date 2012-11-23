@@ -14,7 +14,7 @@
     <ImageView
         android:id="@+id/best_kitten"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/kitten_01"
         android:contentDescription="@string/best_kitten" 
         android:scaleType="centerCrop"/>
