@@ -38,9 +38,10 @@ public class BestKittenActivity extends Activity {
 		R.drawable.kitten_01, R.drawable.kitten_02,//
 				R.drawable.kitten_03, R.drawable.kitten_04,//
 				R.drawable.kitten_05, R.drawable.kitten_06,//
-				R.drawable.kitten_07 //
+				R.drawable.kitten_07, R.drawable.kitten_08, //
+				R.drawable.kitten_09, R.drawable.kitten_10 //
 		};
-		
+
 		loadBestKitten();
 	}
 
@@ -50,11 +51,11 @@ public class BestKittenActivity extends Activity {
 		Random random = new Random();
 		int random_kitten1 = kittens[random.nextInt(kittens.length)];
 		int random_kitten2 = kittens[random.nextInt(kittens.length)];
-		
+
 		while (random_kitten1 == random_kitten2) {
 			random_kitten2 = kittens[random.nextInt(kittens.length)];
 		}
-		
+
 		FightActivity_.intent(this)//
 				.kittenExtra1(random_kitten1)//
 				.kittenExtra2(random_kitten2)//
@@ -64,13 +65,13 @@ public class BestKittenActivity extends Activity {
 	@OnActivityResult(REQUEST_CODE)
 	protected void onResult(int resultCode, Intent data) {
 		Log.d("BestKittenActivity", "onActivityResult(" + resultCode + ",...)");
-			if (resultCode == RESULT_OK) {
-				int kitten = data.getIntExtra(KITTEN, 0);
-				setBestKitten(kitten);
-				saveBestKitten(kitten);
-			}
+		if (resultCode == RESULT_OK) {
+			int kitten = data.getIntExtra(KITTEN, 0);
+			setBestKitten(kitten);
+			saveBestKitten(kitten);
+		}
 	}
-	
+
 	@UiThread
 	protected void setBestKitten(int kitten) {
 		best_kitten.setImageResource(kitten);

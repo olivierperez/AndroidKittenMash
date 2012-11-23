@@ -19,6 +19,9 @@ public final class R {
         public static final int kitten_05=0x7f020005;
         public static final int kitten_06=0x7f020006;
         public static final int kitten_07=0x7f020007;
+        public static final int kitten_08=0x7f020008;
+        public static final int kitten_09=0x7f020009;
+        public static final int kitten_10=0x7f02000a;
     }
     public static final class id {
         public static final int best_kitten=0x7f070001;
@@ -67,7 +70,6 @@ public final class R {
          */
         public static final int AppBaseTheme=0x7f050000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f050001;
     }

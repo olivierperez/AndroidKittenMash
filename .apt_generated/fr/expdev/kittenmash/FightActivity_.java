@@ -39,21 +39,6 @@ public final class FightActivity_
         kitten2 = ((ImageView) findViewById(id.kitten2));
         kitten1 = ((ImageView) findViewById(id.kitten1));
         {
-            View view = findViewById(id.kitten1);
-            if (view!= null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View view) {
-                        FightActivity_.this.kitten1();
-                    }
-
-                }
-                );
-            }
-        }
-        {
             View view = findViewById(id.kitten2);
             if (view!= null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -62,6 +47,21 @@ public final class FightActivity_
                     @Override
                     public void onClick(View view) {
                         FightActivity_.this.kitten2();
+                    }
+
+                }
+                );
+            }
+        }
+        {
+            View view = findViewById(id.kitten1);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        FightActivity_.this.kitten1();
                     }
 
                 }
