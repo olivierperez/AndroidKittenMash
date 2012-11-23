@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,14 +9,24 @@
         android:id="@+id/fight_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fight" />
+        android:text="@string/fight"
+        android:background="@drawable/km_button"
+        
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"/>
 
     <ImageView
         android:id="@+id/best_kitten"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@drawable/kitten_01"
         android:contentDescription="@string/best_kitten" 
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@id/fight_button"/>
 
-</LinearLayout>
+</RelativeLayout>
