@@ -98,14 +98,14 @@ public final class BestKittenActivity_
     }
 
     @Override
-    public void saveBestKitten(final int kitten) {
+    public void loadBestKitten() {
         BackgroundExecutor.execute(new Runnable() {
 
 
             @Override
             public void run() {
                 try {
-                    BestKittenActivity_.super.saveBestKitten(kitten);
+                    BestKittenActivity_.super.loadBestKitten();
                 } catch (RuntimeException e) {
                     Log.e("BestKittenActivity_", "A runtime exception was thrown while executing code in a runnable", e);
                 }
@@ -116,14 +116,14 @@ public final class BestKittenActivity_
     }
 
     @Override
-    public void loadBestKitten() {
+    public void saveBestKitten(final int kitten) {
         BackgroundExecutor.execute(new Runnable() {
 
 
             @Override
             public void run() {
                 try {
-                    BestKittenActivity_.super.loadBestKitten();
+                    BestKittenActivity_.super.saveBestKitten(kitten);
                 } catch (RuntimeException e) {
                     Log.e("BestKittenActivity_", "A runtime exception was thrown while executing code in a runnable", e);
                 }
