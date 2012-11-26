@@ -2,9 +2,11 @@ package fr.expdev.kittenmash;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Click;
@@ -29,16 +31,30 @@ public class FightActivity extends Activity {
 	@ViewById
 	protected ImageView kitten2;
 
+	@ViewById
+	protected TextView vs_text;
+
 	@AfterViews
 	void init() {
 		kitten1.setImageResource(kittenExtra1);
 		kitten2.setImageResource(kittenExtra2);
 
-		Animation animatFromLeftion = AnimationUtils.loadAnimation(this, R.animator.translate_from_left);
-		kitten1.startAnimation(animatFromLeftion);
+		Animation kitten1Animation;
+		Animation kitten2Animation;
 
-		Animation animationFromRight = AnimationUtils.loadAnimation(this, R.animator.translate_from_right);
-		kitten2.startAnimation(animationFromRight);
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+			kitten1Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_top);
+			kitten2Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_bottom);
+		} else {
+			kitten1Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_left);
+			kitten2Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_right);
+		}
+
+		kitten1.startAnimation(kitten1Animation);
+		kitten2.startAnimation(kitten2Animation);
+
+		Animation rotateAndZoom = AnimationUtils.loadAnimation(this, R.animator.rotate_and_zoom);
+		vs_text.startAnimation(rotateAndZoom);
 	}
 
 	@Click

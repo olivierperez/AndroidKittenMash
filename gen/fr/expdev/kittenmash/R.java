@@ -9,8 +9,11 @@ package fr.expdev.kittenmash;
 
 public final class R {
     public static final class animator {
-        public static final int translate_from_left=0x7f040000;
-        public static final int translate_from_right=0x7f040001;
+        public static final int rotate_and_zoom=0x7f040000;
+        public static final int translate_from_bottom=0x7f040001;
+        public static final int translate_from_left=0x7f040002;
+        public static final int translate_from_right=0x7f040003;
+        public static final int translate_from_top=0x7f040004;
     }
     public static final class attr {
     }
@@ -43,8 +46,9 @@ public final class R {
         public static final int best_kitten=0x7f090001;
         public static final int fight_button=0x7f090000;
         public static final int kitten1=0x7f090002;
-        public static final int kitten2=0x7f090003;
-        public static final int menu_settings=0x7f090004;
+        public static final int kitten2=0x7f090004;
+        public static final int menu_settings=0x7f090005;
+        public static final int vs_text=0x7f090003;
     }
     public static final class layout {
         public static final int activity_best_kitten=0x7f030000;
