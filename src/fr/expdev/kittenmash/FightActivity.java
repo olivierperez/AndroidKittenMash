@@ -73,6 +73,17 @@ public class FightActivity extends Activity {
 		setResult(RESULT_OK, data);
 
 		finish();
+		transitaionOut();
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		transitaionOut();
+	}
+
+	private void transitaionOut() {
+		overridePendingTransition(0, R.animator.zoom_n_fade_out);
 	}
 
 }

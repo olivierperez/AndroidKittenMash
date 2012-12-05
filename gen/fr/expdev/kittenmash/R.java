@@ -9,11 +9,14 @@ package fr.expdev.kittenmash;
 
 public final class R {
     public static final class animator {
-        public static final int rotate_and_zoom=0x7f040000;
-        public static final int translate_from_bottom=0x7f040001;
-        public static final int translate_from_left=0x7f040002;
-        public static final int translate_from_right=0x7f040003;
-        public static final int translate_from_top=0x7f040004;
+        public static final int fade_out=0x7f040000;
+        public static final int rotate_and_zoom=0x7f040001;
+        public static final int translate_from_bottom=0x7f040002;
+        public static final int translate_from_left=0x7f040003;
+        public static final int translate_from_right=0x7f040004;
+        public static final int translate_from_top=0x7f040005;
+        public static final int zoom_n_fade_in=0x7f040006;
+        public static final int zoom_n_fade_out=0x7f040007;
     }
     public static final class attr {
     }
