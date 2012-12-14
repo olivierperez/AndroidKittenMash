@@ -15,9 +15,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.googlecode.androidannotations.api.SdkVersionHelper;
+import fr.expdev.kittenmash.R.anim;
 import fr.expdev.kittenmash.R.id;
 import fr.expdev.kittenmash.R.layout;
 
@@ -34,14 +36,19 @@ public final class FightActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
+        rotate_and_zoom = AnimationUtils.loadAnimation(this, anim.rotate_and_zoom);
+        translate_from_bottom = AnimationUtils.loadAnimation(this, anim.translate_from_bottom);
+        translate_from_top = AnimationUtils.loadAnimation(this, anim.translate_from_top);
+        translate_from_right = AnimationUtils.loadAnimation(this, anim.translate_from_right);
+        translate_from_left = AnimationUtils.loadAnimation(this, anim.translate_from_left);
         injectExtras_();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
     private void afterSetContentView_() {
-        kitten2 = ((ImageView) findViewById(id.kitten2));
         kitten1 = ((ImageView) findViewById(id.kitten1));
         vs_text = ((TextView) findViewById(id.vs_text));
+        kitten2 = ((ImageView) findViewById(id.kitten2));
         {
             View view = findViewById(id.kitten2);
             if (view!= null) {
@@ -109,16 +116,16 @@ public final class FightActivity_
         Intent intent_ = getIntent();
         Bundle extras_ = intent_.getExtras();
         if (extras_!= null) {
-            if (extras_.containsKey("kittenExtra2")) {
+            if (extras_.containsKey("kittenExtra1")) {
                 try {
-                    kittenExtra2 = ((Integer) extras_.get("kittenExtra2"));
+                    kittenExtra1 = ((Integer) extras_.get("kittenExtra1"));
                 } catch (ClassCastException e) {
                     Log.e("FightActivity_", "Could not cast extra to expected type, the field is left to its default value", e);
                 }
             }
-            if (extras_.containsKey("kittenExtra1")) {
+            if (extras_.containsKey("kittenExtra2")) {
                 try {
-                    kittenExtra1 = ((Integer) extras_.get("kittenExtra1"));
+                    kittenExtra2 = ((Integer) extras_.get("kittenExtra2"));
                 } catch (ClassCastException e) {
                     Log.e("FightActivity_", "Could not cast extra to expected type, the field is left to its default value", e);
                 }
@@ -163,13 +170,13 @@ public final class FightActivity_
             }
         }
 
-        public FightActivity_.IntentBuilder_ kittenExtra2(int kittenExtra2) {
-            intent_.putExtra("kittenExtra2", kittenExtra2);
+        public FightActivity_.IntentBuilder_ kittenExtra1(int kittenExtra1) {
+            intent_.putExtra("kittenExtra1", kittenExtra1);
             return this;
         }
 
-        public FightActivity_.IntentBuilder_ kittenExtra1(int kittenExtra1) {
-            intent_.putExtra("kittenExtra1", kittenExtra1);
+        public FightActivity_.IntentBuilder_ kittenExtra2(int kittenExtra2) {
+            intent_.putExtra("kittenExtra2", kittenExtra2);
             return this;
         }
 

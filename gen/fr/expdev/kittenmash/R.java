@@ -8,7 +8,7 @@
 package fr.expdev.kittenmash;
 
 public final class R {
-    public static final class animator {
+    public static final class anim {
         public static final int fade_out=0x7f040000;
         public static final int rotate_and_zoom=0x7f040001;
         public static final int translate_from_bottom=0x7f040002;

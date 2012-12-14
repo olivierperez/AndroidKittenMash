@@ -61,7 +61,7 @@ public class BestKittenActivity extends Activity {
 				.kittenExtra2(random_kitten2)//
 				.startForResult(REQUEST_CODE);
 
-		overridePendingTransition(R.animator.zoom_n_fade_in, R.animator.fade_out);
+		overridePendingTransition(R.anim.zoom_n_fade_in, R.anim.fade_out);
 	}
 
 	@OnActivityResult(REQUEST_CODE)

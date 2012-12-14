@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +13,7 @@ import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.Extra;
 import com.googlecode.androidannotations.annotations.NoTitle;
 import com.googlecode.androidannotations.annotations.ViewById;
+import com.googlecode.androidannotations.annotations.res.AnimationRes;
 
 @NoTitle
 @EActivity(R.layout.activity_fight)
@@ -34,6 +34,21 @@ public class FightActivity extends Activity {
 	@ViewById
 	protected TextView vs_text;
 
+	@AnimationRes
+	protected Animation translate_from_top;
+
+	@AnimationRes
+	protected Animation translate_from_bottom;
+
+	@AnimationRes
+	protected Animation translate_from_left;
+
+	@AnimationRes
+	protected Animation translate_from_right;
+
+	@AnimationRes
+	protected Animation rotate_and_zoom;
+
 	@AfterViews
 	void init() {
 		kitten1.setImageResource(kittenExtra1);
@@ -43,18 +58,17 @@ public class FightActivity extends Activity {
 		Animation kitten2Animation;
 
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			kitten1Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_top);
-			kitten2Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_bottom);
+			kitten1Animation = translate_from_top;
+			kitten2Animation = translate_from_bottom;
 		} else {
-			kitten1Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_left);
-			kitten2Animation = AnimationUtils.loadAnimation(this, R.animator.translate_from_right);
+			kitten1Animation = translate_from_left;
+			kitten2Animation = translate_from_right;
 		}
 
 		kitten1.startAnimation(kitten1Animation);
 		kitten2.startAnimation(kitten2Animation);
 
-		Animation rotateAndZoom = AnimationUtils.loadAnimation(this, R.animator.rotate_and_zoom);
-		vs_text.startAnimation(rotateAndZoom);
+		vs_text.startAnimation(rotate_and_zoom);
 	}
 
 	@Click
@@ -83,7 +97,7 @@ public class FightActivity extends Activity {
 	}
 
 	private void transitaionOut() {
-		overridePendingTransition(0, R.animator.zoom_n_fade_out);
+		overridePendingTransition(0, R.anim.zoom_n_fade_out);
 	}
 
 }
